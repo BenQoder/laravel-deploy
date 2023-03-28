@@ -2,9 +2,9 @@
 
 namespace BenQoder\LaravelDeploy\Tests;
 
+use BenQoder\LaravelDeploy\LaravelDeployServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use BenQoder\LaravelDeploy\LaravelDeployServiceProvider;
 
 class TestCase extends Orchestra
 {

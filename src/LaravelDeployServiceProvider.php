@@ -2,9 +2,9 @@
 
 namespace BenQoder\LaravelDeploy;
 
+use BenQoder\LaravelDeploy\Commands\LaravelDeployCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use BenQoder\LaravelDeploy\Commands\LaravelDeployCommand;
 
 class LaravelDeployServiceProvider extends PackageServiceProvider
 {
