@@ -2,12 +2,12 @@
 
 namespace BenQoder\LaravelDeploy\Commands;
 
-use ZipArchive;
-use ZanySoft\Zip\Facades\Zip;
-use RecursiveIteratorIterator;
 use Illuminate\Console\Command;
-use RecursiveDirectoryIterator;
 use Illuminate\Support\Facades\File;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use ZanySoft\Zip\Facades\Zip;
+use ZipArchive;
 
 class LaravelDeployCommand extends Command
 {
@@ -26,11 +26,13 @@ class LaravelDeployCommand extends Command
 
         foreach (scandir(base_path()) as $item) {
             if (in_array($item, [
-                ".",
-                "..",
-                "vendor",
-                "node_modules",
-            ])) continue;
+                '.',
+                '..',
+                'vendor',
+                'node_modules',
+            ])) {
+                continue;
+            }
 
             $zip->add(
                 base_path($item),
@@ -52,7 +54,7 @@ class LaravelDeployCommand extends Command
         );
 
         foreach ($files as $name => $file) {
-            if (!$file->isDir()) {
+            if (! $file->isDir()) {
                 $filePath = $file->getRealPath();
                 $relativePath = substr($filePath, strlen($rootPath) + 1);
                 $zip->addFile($filePath, $relativePath);
